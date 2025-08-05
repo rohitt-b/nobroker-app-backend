@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                        // Output modern JS
+    "module": "commonjs",                   // For Node.js require
+    "rootDir": "./src",                     // Your TS files go here
+    "outDir": "./dist",                     // Compiled JS goes here
+    "strict": true,                         // Strict type checks
+    "esModuleInterop": true,                // Allows 'import x from y'
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,                   // Speed up build
+    "resolveJsonModule": true,              // Import JSON files
+    "sourceMap": true,                      // Allow debugging
+    "declaration": true,                    // Output .d.ts files
+    "declarationMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
