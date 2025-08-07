@@ -11,9 +11,12 @@ export const register = async (req: Request, res: Response) => {
       data: { name, email, password: hashedPassword },
     });
     res.status(201).json(user);
-  } catch (err) {
-    res.status(500).json({ error: 'User registration failed.' });
-  }
+ 
+  } catch (err: any) {
+  console.error("Register error:", err); // 👈 this will log the actual issue
+  res.status(500).json({ error: 'User registration failed.' });
+}
+
 };
 
 export const login = async (req: Request, res: Response) => {
@@ -27,7 +30,9 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET as string, { expiresIn: '1d' });
     res.json({ token });
-  } catch (err) {
-    res.status(500).json({ error: 'Login failed.' });
-  }
+ } catch (err: any) {
+  console.error("Login error:", err); // 👈
+  res.status(500).json({ error: 'Login failed.' });
+}
+
 };
